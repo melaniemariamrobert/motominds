@@ -1,11 +1,64 @@
 <html>
 <head>
 	<script src="/angular/angular.min.js"></script>
+	<script src="/jquery/dist/jquery.min.js"></script>
+	<script src="/javascripts/send_sms.js"></script>
+	
 </head>
 <body>
-	<div ng-app="">
-	 	<p>Name: <input type="text" ng-model="name"></p>
-	 	<p ng-bind="name"></p>
-	</div>
-</body>
-</html>
+<div ng-app="my_app">
+	<div ng-controller="DoubleController">
+
+		<h1 style="aligh:center"> Moto Mindz </h1>
+    	<button ng-click="click_home()">Home</button>
+    	<button ng-click="click_service()">Schedule a Service</button>
+    	<button ng-click="click_special_offers()">Special Offers</button>
+    	<button ng-click="click_contact_us()"> Contacts Us</button>
+    	<div ng-show="show_home">
+    		<br/>
+  			<textarea> Some Blah blah blah</textarea><br/><br/><br/>
+
+  			<img src="car.png">
+  		</div>
+
+  		<div ng-show="show_service">
+  		<br/>
+  			<div>
+  				Showing service	
+	  		</div>
+	  	</div>
+	
+		<div ng-show="show_special_offers">
+  		<br/>
+  			<div>
+  				Showing Special offers	
+	  		</div>
+	  	</div>
+
+	  	<div ng-show="show_contact_us">
+  		<br/>
+  			<div>
+  				Showing Contacts us
+	  		</div>
+	  		<div>
+
+	  			We Value your feedback Please help us to improve! 
+
+	  		</div><br/><br/><br/><br/><br/><br/>
+	  		<form ng-submit="submit_feedback()">
+	  			<span>Area for feedback : </span><br/><br/>
+	  			<select name="selectionField" ng-model="option_selected"> 
+  					<option value="one" selected="one">Option1</option>
+  					<option value="two" >Option2</option>
+  					<option value="three" >Option3</option>
+				</select>
+				<br/><br/>
+	  			<textarea ng-model="feedBack" placeholder = "Please type in your feedback here" ></textarea>	<br/><br/>
+	  			<button type="submit"> Submit </button>
+	  		
+	  		</form><br/><br/>
+	  		<div> {{option_selected}} {{ feedBack }} </div>
+	  	</div>
+		</div>	
+</div>
+</html>	

@@ -56,5 +56,18 @@ app.use(function(err, req, res, next) {
     });
 });
 
+app.get('/form',function(req, res){
+    res.readfile(__dirname + "public/index.html", 'utf8', function(err, text){
+        res.send(text);
+    })
+
+});
+
+app.get('/', function(req, res){
+  res.render('/my_app/views/index.html');
+});
+
+app.listen(8080);
+
 
 module.exports = app;
